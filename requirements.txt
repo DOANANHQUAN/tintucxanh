@@ -8,5 +8,8 @@ tzdata==2025.2
 # Image processing (cho avatar và thumbnail bài viết)
 Pillow==11.1.0
 
+# Rich text editor (trình soạn thảo bài viết)
+django-ckeditor-5==0.2.20
+
 # Môi trường & cấu hình
 python-dotenv==1.2.2
