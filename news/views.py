@@ -13,7 +13,6 @@ import requests
 from .models import Article, Blog, Comment, Profile
 from .forms import RegisterForm, ProfileForm, UserForm, CommentForm
 from django.http import JsonResponse
-from openai import OpenAI
 from google import genai
 
 def get_popular_tags():
