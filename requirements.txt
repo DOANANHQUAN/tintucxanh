@@ -18,3 +18,4 @@ markdown2==2.5.5
 python-dotenv==1.2.2
 
 certifi==2026.6.17
+requests==2.34.2
