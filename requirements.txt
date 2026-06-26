@@ -1,0 +1,12 @@
+# Các thư viện cần thiết cho dự án Tin Tức Xanh
+# Django & Core
+Django==5.2.7
+asgiref==3.10.0
+sqlparse==0.5.3
+tzdata==2025.2
+
+# Image processing (cho avatar và thumbnail bài viết)
+Pillow==11.1.0
+
+# Môi trường & cấu hình
+python-dotenv==1.2.2
