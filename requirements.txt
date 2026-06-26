@@ -14,8 +14,13 @@ django-ckeditor-5==0.2.20
 # Markdown renderer (dùng trong templatetags/markdown_extras.py)
 markdown2==2.5.5
 
+# Google Generative AI SDK (dùng trong views.py)
+google-genai==2.10.0
+
+# HTTP requests & SSL certificates (dùng trong views.py)
+requests==2.34.2
+certifi==2026.6.17
+urllib3==2.7.0
+
 # Môi trường & cấu hình
 python-dotenv==1.2.2
-
-certifi==2026.6.17
-requests==2.34.2
