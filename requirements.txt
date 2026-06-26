@@ -16,3 +16,5 @@ markdown2==2.5.5
 
 # Môi trường & cấu hình
 python-dotenv==1.2.2
+
+certifi==2026.6.17
