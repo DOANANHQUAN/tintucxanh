@@ -1,0 +1,93 @@
+1. Mục tiêu website
+Website chỉ để đọc tin tức hay có cả đăng bài?
+ Có hệ thống quản trị viên đăng bài
+
+Website hướng đến loại tin tức nào?
+ Tổng hợp
+ Công nghệ
+ Thể thao
+ Game
+ Giáo dục
+ Khác: ...
+
+2. Tài khoản người dùng
+Có cần đăng ký / đăng nhập không?
+ Có
+
+Đăng nhập bằng:
+ Email + Password
+ Google
+
+Người dùng có thể:
+ Bình luận bài viết
+ Thích bài viết
+
+3. Chức năng bài viết
+Mỗi bài viết gồm:
+ Tiêu đề
+ Ảnh đại diện
+ Nội dung
+ Tags
+
+Có cần:
+ Tin nổi bật
+ Tin mới nhất
+ Tin xem nhiều nhất
+
+4. Chức năng tìm kiếm
+Muốn tìm kiếm theo:
+ Tiêu đề
+ Nội dung
+ Tags
+ Tác giả
+
+Có cần bộ lọc nâng cao không?
+ Không
+5. Trang quản trị
+Muốn dùng:
+ Django Admin mặc định
+
+Dashboard cần quản lý:
+ Bài viết
+ Người dùng
+ Bình luận
+
+6. Giao diện
+Bạn thích phong cách nào?
+ Tự thiết kế
+
+Màu chủ đạo:
+ Xanh dương
+
+Có Dark Mode không?
+ Không
+
+Framework CSS:
+ Bootstrap 5
+
+7. Trang cần có
+Chọn các trang:
+
+ Trang chủ
+ Danh sách bài viết
+ Chi tiết bài viết
+ Tags
+ Tìm kiếm
+ Đăng nhập
+ Đăng ký
+ Hồ sơ người dùng
+ Bài viết đã lưu
+ Giới thiệu
+
+9. Công nghệ
+Database:
+ SQLite
+
+Muốn dùng:
+ Mô hình MTV
+
+Có triển khai thực tế không?
+ Không
+
+Mức độ dự án:
+ Học tập

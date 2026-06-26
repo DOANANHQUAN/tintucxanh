@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Giới thiệu - Tin Tức Xanh{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm p-5">
+                <h1 class="fw-bold mb-4 text-primary text-center"><i class="fa-solid fa-leaf me-2"></i>Giới thiệu Tin Tức Xanh</h1>
+                
+                <p class="lead">Chào mừng bạn đến với <strong>Tin Tức Xanh</strong> - dự án website tin tức hiện đại, tối giản và thân thiện với môi trường đọc tin tức kỹ thuật số.</p>
+                
+                <h4 class="mt-4 fw-bold">Sứ mệnh của chúng tôi</h4>
+                <p>Tin Tức Xanh hướng tới xây dựng một không gian trải nghiệm tin tức sạch sẽ, không bị làm phiền bởi quảng cáo rườm rà. Chúng tôi tập trung cung cấp các chủ đề hữu ích từ Công nghệ, Giáo dục, Thể thao và Game, giúp người đọc nắm bắt thông tin nhanh chóng và thuận tiện nhất.</p>
+
+                <h4 class="mt-4 fw-bold">Tính năng chính</h4>
+                <ul>
+                    <li>Đọc tin tức mới nhất, tin tức nổi bật và các bài viết được xem nhiều nhất.</li>
+                    <li>Tìm kiếm thông tin dễ dàng qua tiêu đề, nội dung, tác giả hoặc tag liên quan.</li>
+                    <li>Lưu các bài viết yêu thích vào danh sách "Bài viết đã lưu" để đọc lại sau.</li>
+                    <li>Tương tác, bình luận, thảo luận và bày tỏ cảm xúc với mỗi bài viết bằng cách nhấn Thích.</li>
+                    <li>Quản lý hồ sơ cá nhân và thay đổi avatar tùy biến.</li>
+                </ul>
+
+                <h4 class="mt-4 fw-bold">Công nghệ xây dựng</h4>
+                <p>Website được phát triển dựa trên các công nghệ chuẩn mực dành cho việc giảng dạy và thực hành lập trình:</p>
+                <ul>
+                    <li>Mô hình kiến trúc MTV (Model - Template - View) của <strong>Django Web Framework</strong>.</li>
+                    <li>Ngôn ngữ lập trình chính: <strong>Python 3.10+</strong>.</li>
+                    <li>Hệ quản trị cơ sở dữ liệu gọn nhẹ: <strong>SQLite</strong>.</li>
+                    <li>Giao diện thiết kế linh hoạt bằng <strong>Bootstrap 5</strong> và CSS tùy chỉnh chuẩn thiết kế hiện đại.</li>
+                </ul>
+
+                <div class="mt-5 text-center">
+                    <a href="{% url 'home' %}" class="btn btn-primary">Trở về Trang chủ</a>
+                    <a href="{% url 'article_list' %}" class="btn btn-outline-primary ms-2">Xem các bài viết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block title %}Hồ sơ cá nhân - Tin Tức Xanh{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <!-- Sidebar: User Summary & Navigation Tabs -->
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow-sm text-center p-4">
+                <div class="mb-3">
+                    <img src="{{ user.profile.avatar.url }}" alt="avatar" class="profile-avatar mb-3">
+                    <h4 class="fw-bold">{{ user.profile.display_name|default:user.username }}</h4>
+                    <p class="text-muted">{{ user.email }}</p>
+                </div>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active text-start mb-2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">
+                        <i class="fa-regular fa-user me-2"></i> Thông tin cá nhân
+                    </button>
+                    <button class="nav-link text-start mb-2" id="v-pills-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-password" type="button" role="tab" aria-controls="v-pills-password" aria-selected="false">
+                        <i class="fa-solid fa-key me-2"></i> Đổi mật khẩu
+                    </button>
+                    <button class="nav-link text-start mb-2" id="v-pills-liked-tab" data-bs-toggle="pill" data-bs-target="#v-pills-liked" type="button" role="tab" aria-controls="v-pills-liked" aria-selected="false">
+                        <i class="fa-regular fa-heart me-2"></i> Bài viết đã thích ({{ liked_articles.count }})
+                    </button>
+                    <button class="nav-link text-start" id="v-pills-saved-tab" data-bs-toggle="pill" data-bs-target="#v-pills-saved" type="button" role="tab" aria-controls="v-pills-saved" aria-selected="false">
+                        <i class="fa-regular fa-bookmark me-2"></i> Bài viết đã lưu ({{ saved_articles_list.count }})
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area for Tabs -->
+        <div class="col-md-8">
+            <div class="tab-content" id="v-pills-tabContent">
+                <!-- Info Tab -->
+                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h4 class="card-title fw-bold border-bottom pb-2 mb-4">Cập nhật hồ sơ</h4>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="hidden" name="update_profile" value="1">
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-bold">Tên đăng nhập</label>
+                                    <input type="text" class="form-control" value="{{ user.username }}" disabled>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-bold">Địa chỉ Email</label>
+                                    {{ user_form.email }}
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Tên hiển thị</label>
+                                {{ profile_form.display_name }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Thay đổi ảnh đại diện (avatar)</label>
+                                {{ profile_form.avatar }}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-3">Lưu thay đổi</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Password Tab -->
+                <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h4 class="card-title fw-bold border-bottom pb-2 mb-4">Đổi mật khẩu</h4>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="change_password" value="1">
+                            
+                            {% for field in password_form %}
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">{{ field.label }}</label>
+                                    <input type="password" name="{{ field.html_name }}" id="{{ field.id_for_label }}" class="form-control {% if field.errors %}is-invalid{% endif %}">
+                                    {% for error in field.errors %}
+                                        <div class="text-danger small mt-1">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                            
+                            <button type="submit" class="btn btn-primary mt-3">Đổi mật khẩu</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Liked Articles Tab -->
+                <div class="tab-pane fade" id="v-pills-liked" role="tabpanel" aria-labelledby="v-pills-liked-tab">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h4 class="card-title fw-bold border-bottom pb-2 mb-4">Danh sách bài viết đã thích</h4>
+                        <div class="list-group">
+                            {% for art in liked_articles %}
+                                <a href="{% url 'article_detail' slug=art.slug %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                                    <div>
+                                        <h6 class="mb-1 fw-bold text-primary">{{ art.title }}</h6>
+                                        <small class="text-muted"><i class="fa-regular fa-calendar me-1"></i>{{ art.created_at|date:"d/m/Y" }}</small>
+                                    </div>
+                                    <span class="badge bg-danger rounded-pill"><i class="fa-solid fa-heart me-1"></i>{{ art.likes.count }}</span>
+                                </a>
+                            {% empty %}
+                                <p class="text-muted text-center py-4">Bạn chưa thích bài viết nào.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Articles Tab -->
+                <div class="tab-pane fade" id="v-pills-saved" role="tabpanel" aria-labelledby="v-pills-saved-tab">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h4 class="card-title fw-bold border-bottom pb-2 mb-4">Danh sách bài viết đã lưu</h4>
+                        <div class="list-group">
+                            {% for art in saved_articles_list %}
+                                <a href="{% url 'article_detail' slug=art.slug %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                                    <div>
+                                        <h6 class="mb-1 fw-bold text-primary">{{ art.title }}</h6>
+                                        <small class="text-muted"><i class="fa-regular fa-calendar me-1"></i>{{ art.created_at|date:"d/m/Y" }}</small>
+                                    </div>
+                                    <span class="badge bg-warning text-white rounded-pill"><i class="fa-solid fa-bookmark"></i></span>
+                                </a>
+                            {% empty %}
+                                <p class="text-muted text-center py-4">Bạn chưa lưu bài viết nào.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

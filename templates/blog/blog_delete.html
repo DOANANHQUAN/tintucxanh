@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Xóa Blog{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Xóa Blog</h2>
+    <p>Bạn có chắc chắn muốn xóa blog "{{ blog.title }}" không?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="{% url 'blog_list' %}" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>
+{% endblock %}

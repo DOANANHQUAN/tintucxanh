@@ -1,0 +1,409 @@
+/* Import Fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #0033A0;       /* Deep Ocean Blue */
+    --primary-hover: #002280;
+    --secondary-color: #E8F0FE;     /* Sky Blue Tint */
+    --accent-color: #F97316;        /* Orange */
+    --accent-hover: #EA580C;
+    --text-dark: #0F172A;
+    --text-muted: #475569;
+    --bg-light: #F1F5F9;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #F0F4F9;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Navbar Customization */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #0056B3 !important;
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link.active {
+    color: #0056B3 !important;
+    font-weight: 700;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    right: 8px;
+    height: 3px;
+    background-color: #0056B3;
+    border-radius: 2px;
+}
+
+.navbar .btn-primary {
+    border-radius: 20px;
+    padding: 0.4rem 1.5rem;
+    font-weight: 600;
+    background-color: #0A369D;
+    border: none;
+}
+
+/* Header Search */
+.header-search {
+    background-color: #F1F5F9;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.header-search-btn {
+    background-color: #F1F5F9;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    color: var(--text-muted);
+}
+
+/* Hero Section */
+.hero-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    box-shadow: var(--card-shadow);
+}
+
+.hero-card img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.hero-info-tag {
+    color: #0056B3;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.hero-card .btn-readmore {
+    background-color: #0033A0;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.hero-card .btn-readmore:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Right side list items of Hero */
+.hero-right-item {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    padding: 0.75rem;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: var(--card-shadow);
+    transition: all 0.2s ease;
+}
+
+.hero-right-item:hover {
+    transform: translateY(-2px);
+}
+
+.hero-right-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.hero-right-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.hero-right-tag {
+    font-size: 0.75rem;
+    color: #EF4444;
+    font-weight: bold;
+}
+
+/* Sections */
+.section-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.25rem;
+    border-left: 4px solid #0056B3;
+    padding-left: 10px;
+    margin-bottom: 1.5rem;
+}
+
+/* News grid cards */
+.custom-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-card img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.custom-card .card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-card .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.custom-card .card-title a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.custom-card .card-title a:hover {
+    color: #0056B3;
+}
+
+.custom-card .card-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.custom-card .card-footer-info {
+    border-top: 1px solid #F1F5F9;
+    padding-top: 0.75rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: border-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Weather Widget */
+.weather-widget {
+    background-color: #0A369D;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.weather-title {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.weather-temp {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+}
+
+.weather-info {
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
+/* Top Viewed Sidebar */
+.viewed-list-item {
+    display: flex;
+    gap: 12px;
+    padding: 1rem 0;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.viewed-list-item:last-child {
+    border-bottom: none;
+}
+
+.viewed-num {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #CBD5E1;
+    line-height: 1;
+}
+
+.viewed-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.viewed-title:hover {
+    color: #0056B3;
+}
+
+/* Hot topics tags */
+.hot-tag-pill {
+    background-color: #F1F5F9;
+    color: #475569;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    transition: all 0.2s ease;
+    border: 1px solid #E2E8F0;
+}
+
+.hot-tag-pill:hover {
+    background-color: #0056B3;
+    color: #ffffff;
+    border-color: #0056B3;
+}
+
+/* Newsletter Banner */
+.newsletter-banner {
+    background-color: #002D72;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.newsletter-title {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #93C5FD;
+    margin-bottom: 4px;
+}
+
+.newsletter-heading {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.newsletter-desc {
+    font-size: 0.9rem;
+    color: #BFDBFE;
+}
+
+.newsletter-input {
+    border-radius: 4px;
+    border: none;
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.newsletter-btn {
+    background-color: #F97316;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 0.65rem 2rem;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.newsletter-btn:hover {
+    background-color: #EA580C;
+}
+
+/* Footer redesign */
+.custom-footer {
+    background-color: #E8EFFE;
+    color: #475569;
+    font-size: 0.85rem;
+}
+
+.custom-footer h6 {
+    color: #0F172A;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.custom-footer a {
+    color: #475569;
+    text-decoration: none;
+}
+
+.custom-footer a:hover {
+    color: #0056B3;
+}
+
+.social-circle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #475569;
+    border: 1px solid #E2E8F0;
+    transition: all 0.2s ease;
+}
+
+.social-circle-btn:hover {
+    background-color: #0056B3;
+    color: #ffffff;
+}

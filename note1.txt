@@ -1,0 +1,99 @@
+1. Danh mục (Category)
+
+Trong file thiết kế có đề cập đến danh mục tin tức, nhưng trong yêu cầu chức năng chưa có.
+
+Bạn muốn:
+
+ Không có Category
+
+2. Hệ thống bình luận
+
+Người dùng được bình luận.
+
+Bạn muốn:
+
+ Bình luận đơn giản
+
+3. Bài viết đã lưu
+
+Bạn có chọn "Bài viết đã lưu".
+
+Bạn muốn:
+
+ Chỉ lưu / bỏ lưu
+ Có trang quản lý bài viết đã lưu
+
+4. Hồ sơ người dùng
+
+Trang profile gồm những gì?
+
+Ví dụ:
+
+ Avatar
+ Tên hiển thị
+ Email
+ Danh sách bài viết đã thích
+ Danh sách bài viết đã lưu
+ Đổi mật khẩu
+
+5. Tin xem nhiều nhất
+
+Bạn muốn:
+
+ Đếm số lượt xem thật
+
+6. Tin nổi bật
+
+Admin có thể:
+
+ Đánh dấu bài viết là nổi bật
+
+7. Trình soạn thảo bài viết
+
+Khi admin viết bài:
+
+ TextArea thông thường
+
+8. Ảnh bài viết
+
+Bạn muốn:
+
+ Một ảnh đại diện
+ Nhiều ảnh trong nội dung
+
+9. Trang chủ
+
+Bạn thích bố cục nào?
+C. Tin Tức Xanh riêng
+Hero Banner
+Breaking News
+Tin nổi bật
+Tin mới nhất
+Tin xem nhiều
+Danh mục
+
+10. Responsive
+
+Bạn muốn hỗ trợ:
+
+ Desktop
+
+11. SEO
+
+Không cần SEO
+
+13. Cấu trúc code
+
+Bạn muốn AI tạo:
+
+ Một app duy nhất (news)
+
+14. Mức độ chi tiết của prompt
+
+Bạn muốn AI sinh:
+
+A. Chỉ khung dự án
+Models
+Views
+URLs
+Templates

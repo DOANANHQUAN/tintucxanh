@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if tag_filter %}
+        Bài viết với tag "{{ tag_filter }}" - Tin Tức Xanh
+    {% else %}
+        Tất cả bài viết - Tin Tức Xanh
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Main content column -->
+        <div class="col-lg-8">
+            <h2 class="border-bottom border-primary border-3 pb-2 mb-4">
+                {% if tag_filter %}
+                    <i class="fa-solid fa-tag text-primary me-2"></i>Tag: {{ tag_filter }}
+                {% else %}
+                    <i class="fa-solid fa-list text-primary me-2"></i>Tất cả bài viết
+                {% endif %}
+            </h2>
+
+            <div class="row g-4">
+                {% for art in articles %}
+                <div class="col-md-6">
+                    <div class="news-card">
+                        <a href="{% url 'article_detail' slug=art.slug %}">
+                            <img src="{{ art.thumbnail.url }}" class="card-img-top" alt="{{ art.title }}">
+                        </a>
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Tin Tức</span>
+                            <h5 class="card-title">
+                                <a href="{% url 'article_detail' slug=art.slug %}">{{ art.title }}</a>
+                            </h5>
+                            <p class="card-text text-muted small">{{ art.content|striptags|truncatewords:15 }}</p>
+                            <div class="d-flex justify-content-between text-secondary small">
+                                <span><i class="fa-regular fa-calendar me-1"></i>{{ art.created_at|date:"d/m/Y" }}</span>
+                                <span><i class="fa-regular fa-eye me-1"></i>{{ art.views }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="alert alert-warning text-center">Không tìm thấy bài viết nào.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Sidebar column -->
+        <div class="col-lg-4">
+            <!-- Tin xem nhiều -->
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title border-bottom border-primary pb-2 mb-3">
+                        <i class="fa-solid fa-chart-line text-danger me-2"></i>Tin Xem Nhiều
+                    </h4>
+                    <div class="sidebar-list">
+                        {% for art in most_viewed %}
+                        <div class="sidebar-list-item">
+                            <div class="d-flex align-items-start">
+                                <span class="badge bg-secondary text-dark me-2 mt-1">{{ forloop.counter }}</span>
+                                <div>
+                                    <a href="{% url 'article_detail' slug=art.slug %}" class="sidebar-link d-block">
+                                        {{ art.title }}
+                                    </a>
+                                    <span class="text-muted small"><i class="fa-regular fa-eye me-1"></i>{{ art.views }} lượt xem</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p class="text-muted">Chưa có bài viết nào.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags phổ biến -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title border-bottom border-primary pb-2 mb-3">
+                        <i class="fa-solid fa-tags text-primary me-2"></i>Tags Phổ Biến
+                    </h4>
+                    <div>
+                        {% for tag in popular_tags %}
+                            <a href="{% url 'article_list' %}?tag={{ tag }}" class="tag-badge">{{ tag }}</a>
+                        {% empty %}
+                        <p class="text-muted">Chưa có tag nào.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tạo Blog Mới{% endblock %}
+
+{% block content %}
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+<div class="container">
+    <h2 class="mb-4">
+        {% if type == 'create' %}
+            Tạo Blog Mới
+        {% else %}
+            Chỉnh sửa Blog
+        {% endif %}
+    </h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_title" class="form-label">Tiêu đề</label>
+            <input type="text" class="form-control" id="id_title" name="title" value="{{ blog.title }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="id_content" class="form-label">Nội dung</label>
+            <textarea class="form-control" id="editor" name="content" rows="5">{{ blog.content }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="id_thumbnail" class="form-label">Ảnh đại diện</label>
+            <input type="file" class="form-control" id="id_thumbnail" name="thumbnail">
+        </div>
+        <button type="submit" class="btn btn-success">
+            {% if type == 'create' %}
+                Tạo Blog
+            {% else %}
+                Cập nhật Blog
+            {% endif %}
+        </button>
+    </form>
+</div>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            // toolbar: [
+            //     'heading',
+            //     '|',
+            //     'bold',
+            //     'italic',
+            //     'underline',
+            //     '|',
+            //     'fontSize',
+            //     'fontFamily',
+            //     'fontColor',
+            //     'fontBackgroundColor',
+            //     '|',
+            //     'bulletedList',
+            //     'numberedList',
+            //     '|',
+            //     'insertTable',
+            //     'link',
+            //     '|',
+            //     'undo',
+            //     'redo'
+            // ]
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+{% endblock %}
